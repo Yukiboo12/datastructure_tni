@@ -13,17 +13,28 @@ public final class Lab202 {
 			numbers.add(initial_numbers[i]);
 		}
 		
-		System.out.print("Enter element to add at the Last: ");
+		System.out.println("Initial numbers: " + "\n" + numbers);
+		
+		System.out.print("\nEnter your student ID :");
+		String studentId = scan.next();
+		
+		System.out.print("\nEnter the last digit of your student ID : "); // ต่อท้ายข้อมูลตัวสุดท้ายใน numbers
 		numbers.add(scan.nextInt());
+		System.out.println(numbers);
 		
-		System.out.print("Enter element to insert: "); //ที่จะแทรก
-		numbers.add(2, scan.nextInt()); // ตัวสุดท้าย
+		System.out.print("\nEnter element to insert (ตัวเลขที่จะแทรกที่) : "); //แทรกเข้าไปใน numbers ที่ตำแหน่งตามเลขสุดท้ายของรหัสนักศึกษา
+		numbers.add(10, scan.nextInt()); 
+		System.out.println(">> Update : " + numbers);
 		
-		numbers.remove(8); // รองสุดท้าย
+		System.out.print("\nDeleting data at Index :"); //ลบข้อมูลใน numbers โดยลบตำแหน่งตามเลขรองสุดท้ายของรหัสนักศึกษา
+		numbers.remove(scan.nextInt()); 
+		System.out.println(">> Update : " + numbers);
 		
-		numbers.set(0, 7); // ก่อนรองสุดท้าย 
+		System.out.print("\nEnter today's date : "); //ปเดตตัวเลขใน numbers โดยตำแหน่งที่อัปเดตตามเลขก่อนรองสุดท้าย...วันที่เรียน วันที่7
+		numbers.set(0, scan.nextInt()); 
+		System.out.println(">> Update: " + numbers);
 		
-		System.out.println("Final ArrayList: " + numbers);
+		System.out.println("\nFinal ArrayList: " + numbers);
 
 	}
 
