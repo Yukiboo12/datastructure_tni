@@ -1,0 +1,79 @@
+
+public class Lab203 {
+
+	public static void main(String[] args) {
+		String[] subjects = {"ITE-201", "BIS-112", "DAT-201", "JPN-201", "ENL-211"}; 
+		displayArray("Original", subjects);
+		
+		System.out.println();
+		String new_subject = "SOC-111";
+		subjects = addArraySize(subjects);
+		subjects[subjects.length-1] = new_subject;
+		displayArray("Already apended element", subjects);
+		
+		System.out.println();
+		int delete_index1 = 3;
+		subjects = deleteElement(delete_index1, subjects);
+		displayArray("Already deleted index " + delete_index1, subjects);
+		
+		System.out.println();
+		int delete_index2 = 0;
+		subjects = deleteElement(delete_index2, subjects);
+		displayArray("Already deleted index " + delete_index2, subjects);
+		
+		System.out.println();
+		int delete_index3 = subjects.length-1;
+		subjects = deleteElement(delete_index3, subjects);
+		displayArray("Already deleted last index", subjects);
+		
+		System.out.println();
+		int index_update = 1;
+		String element_update = "MTE-201";
+		subjects = updateElement(index_update, element_update, subjects);
+		displayArray("Already updated element", subjects);
+
+	}
+	
+	public static void displayArray(String message, String[] subjects) {
+		System.out.print(message + ": ");
+		boolean first = true;
+		for (String subject : subjects) {
+			System.out.print((!first ? ", " : "") + subject);
+			first = false;
+		}
+		
+	}
+	
+	public static String[] addArraySize(String[] subjects) {
+		// เขียนคำสั่งเพิ่มขนาดของอาร์เรย์อีก 1 ตำแหน่ง และคืนค่าอาร์เรย์ที่ได้เพิ่มขนาดเรียบร้อยแล้ว (โดยยังคงข้อมูลเดิมไว้)
+		String[] newArray = new String[subjects.length + 1];
+		
+		for (int i = 0; i < subjects.length; i++) {
+			newArray[i] = subjects[i];
+			
+		}
+		
+		return newArray;
+	}
+	
+	public static String[] deleteElement(int index, String[] subjects) {
+		// เขียนคำสั่งลบข้อมูลในอาร์เรย์ ตามตำแหน่งที่ส่งมาให้กับพารามิเตอร์ และคืนค่าอาร์เรย์ที่มีการลบข้อมูลเรียบร้อย
+		String[] newArray = new String[subjects.length - 1];
+		
+		for (int i = 0, j = 0; i < subjects.length; i++) {
+			if (i != index) { // ถ้าไม่ใช่ตำแหน่งที่ต้องการลบให้คัดลอก
+				newArray[j++] = subjects[i];
+			}
+		}
+		
+		return newArray;
+	}
+	
+	public static String[] updateElement(int index, String value, String[] subjects) {
+		// เขียนคำสั่งอัปเดตข้อมูลในอาร์เรย์ตาม ตำแหน่ง และ ข้อมูล ที่ส่งมาให้กับพารามิเตอร์ และคืนค่าอาร์เรย์ที่อัปเดตเรียบร้อย
+		subjects[index] = value;
+		
+		return subjects;
+	}
+
+}
